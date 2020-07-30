@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双向数据绑定</title>
+  </head>
+  <body>
+    <div style="margin: 0 auto;">{data.name}</div>
+    <script>
+      let data = {
+        name: "tpim",
+        age: 18,
+        occupation: "front",
+      };
+      function Observer(data) {
+        this.data = data;
+        this.walk(data);
+      }
+      Observer.prototype = {
+        walk: function (obj) {
+          let value, key;
+          //遍历递归，使得每一个变量绑定了convert方法
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) {
+              value = obj[key];
+              if (typeof value === "object") {
+                new Observer(value);
+              }
+              this.convert(key, value);
+            }
+          }
+        },
+        convert: function (key, value) {
+          Object.defineProperty(this.data, key, {
+            get: function () {
+              console.log("你访问了" + key);
+              return value;
+            },
+            set: function (newValue) {
+              value = newValue;
+              console.log("你设置了" + key + "=" + value);
+            },
+          });
+        },
+      };
+      let expample = new Observer(data);
+      console.log(data.name);
+      console.log((data.age = 100));
+
+      function 
+
+    </script>
+  </body>
+</html>
