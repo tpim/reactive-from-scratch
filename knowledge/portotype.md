@@ -60,6 +60,49 @@ console.dir(User);
 
 ![2020-07-31-00-09-04-eUtj1V-aDAJYu](https://imgs-201531.oss-cn-hongkong.aliyuncs.com/uPic/2020-07-31-00-09-04-eUtj1V-aDAJYu.png)
 
+```javascript
+let p = new User(); // p 的父级指向 User 的父级
+p.show();
+console.log(User.prototype === p.__proto__); // true
+```
+
+![2020-07-31-00-22-50-oIcepw-g4Surj](https://imgs-201531.oss-cn-hongkong.aliyuncs.com/uPic/2020-07-31-00-22-50-oIcepw-g4Surj.png)
+
+把 User 当做对象使用时候，他的父类是 `User.__proto__`。 当使用 User 产生实例的时候，User.prototype 等于 `p.__proto__`。
+![2020-07-31-00-37-04-Uium15-2yETZD](https://imgs-201531.oss-cn-hongkong.aliyuncs.com/uPic/2020-07-31-00-37-04-Uium15-2yETZD.png)
+
+```javascript
+let o = new Object();
+Object.prototype.show_aaa = function () {
+  console.log("baidu.com");
+};
+
+function User() {}
+console.dir(User);
+
+let u = new User();
+console.dir(u);
+console.log(User.prototype.__proto__ === User.__proto__.__proto__);
+console.log(User.prototype.__proto__ === u.__proto__.__proto__);
+u.show_aaa();
+```
+
+![2020-07-31-00-56-39-zxHxzX-8u32Q7](https://imgs-201531.oss-cn-hongkong.aliyuncs.com/uPic/2020-07-31-00-56-39-zxHxzX-8u32Q7.png)
+
+## 继承
+
+```javascript
+let hd = {};
+let parent = {
+  name: "parent",
+  show() {
+    console.log("is: " + this.name);
+  },
+};
+Object.setPrototypeOf(hd, parent);
+hd.show(); //this 指向调用它的对象
+```
+
 ## 记录
 
 - {}的 `__proto__` 的 Object

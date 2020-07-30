@@ -7,8 +7,15 @@
   </head>
   <body>
     <script>
-      function User() {}
-      console.dir(User);
+      let hd = {};
+      let parent = {
+        name: "parent",
+        show() {
+          console.log("is: " + this.name);
+        },
+      };
+      Object.setPrototypeOf(hd, parent);
+      hd.show();
     </script>
   </body>
 </html>
