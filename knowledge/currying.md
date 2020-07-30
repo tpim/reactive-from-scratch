@@ -40,6 +40,17 @@ console.log(newArr);
 ```
 
 ```javascript
+let setTail = function (tail) {
+  return function (content) {
+    return content + tail;
+  };
+};
+
+let newArr = [1, 2, 3, 4].map(setTail("~"));
+console.log(newArr);
+```
+
+```javascript
 let surprise = setSurprise(
   function () {
     let allOfContent = [].slice.call(arguments);
