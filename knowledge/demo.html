@@ -7,15 +7,27 @@
   </head>
   <body>
     <script>
-      let hd = {};
-      let parent = {
-        name: "parent",
-        show() {
-          console.log("is: " + this.name);
-        },
+      let o = {
+        name: "a",
       };
-      Object.setPrototypeOf(hd, parent);
-      hd.show();
+
+      Object.prototype.salary = 10000;
+
+      o.__proto__.age = 10;
+
+      console.log(o);
+      console.log("age" in o);
+      for (let i in o) {
+        console.log(i);
+      }
+
+      console.log(Object.prototype);
+
+      for (const key in o) {
+        if (o.hasOwnProperty(key)) {
+          console.log(key);
+        }
+      }
     </script>
   </body>
 </html>
