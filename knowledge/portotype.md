@@ -8,6 +8,8 @@
 - `Function.prototype` 和 `Function.__proto__` 相等
 - `Object.prototype.__proto__` 指向 null
 
+## 遗传关系
+
 原型链关系图
 ![2020-07-31-10-35-52-PgDFbh-v2-b86ade7ff43bdf1b05f4c5dc8704f634_1440w](https://imgs-201531.oss-cn-hongkong.aliyuncs.com/uPic/2020-07-31-10-35-52-PgDFbh-v2-b86ade7ff43bdf1b05f4c5dc8704f634_1440w.jpg)
 
